@@ -1,0 +1,36 @@
+<header class="bg-dark py-5">
+  <div class="container px-4 px-lg-5 my-5">
+      <div class="text-center text-white">
+          <h1 class="display-4 fw-bolder">ADVISING EDUCATION ENROLLMENT</h1>
+          <p class="lead fw-normal text-white-50 mb-0">A new approach to university admissions counseling</p>
+      </div>
+  </div>
+</header>
+<div id="secwrapper">
+<section>
+  <div class="card" style="width: 80%;  margin-left: 10%; margin-top: 1.5em;">
+    <div class="card-header" style="padding-left: 1em;">
+      Nội dung chính:
+    </div>
+    <div class="card-body" style="padding: 1em;">
+      <h5 class="card-title">{{post_title}}</h5>
+      <p class="card-text">{{post_content}}</p>
+    </div>
+  </div>
+  <h6 style="margin-left: 10%; margin-top: 1.5em;">Bình luận: </h6>
+  <hr width="80%;">
+  <div class="card" style="width: 80%;  margin-left: 10%; margin-top: 1.5em;" *ngFor="let item of ListOfReplies">
+    <div class="card-header" style="padding-left: 1em;">
+      {{item.createdDate}}
+    </div>
+    <div class="card-body" style="padding: 1em;">
+      <p class="card-text"><b>Tác giả:&nbsp;</b><img [src]="item.user.avatarPath" style="width: 1.5em;"> {{item.user.username}}</p>
+      <p class="card-text">{{item.content}}</p>
+    </div>
+  </div>
+</section>
+<form (ngSubmit)="OnSubmit()" [formGroup]="CreateForm">
+  <textarea style="margin-left: 10%; margin-top: 1em; width: 80%; height: 5em; resize: none;" formControlName="Comment"></textarea><br>
+  <button type="submit" class="btn btn-success" style="margin-left: 10%; margin-top: 1em;">Bình luận</button>
+</form>
+</div>

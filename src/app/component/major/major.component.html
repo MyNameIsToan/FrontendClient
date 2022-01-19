@@ -1,0 +1,23 @@
+<header class="bg-dark py-5">
+  <div class="container px-4 px-lg-5 my-5">
+      <div class="text-center text-white">
+          <h1 class="display-4 fw-bolder">ADVISING EDUCATION ENROLLMENT</h1>
+          <p class="lead fw-normal text-white-50 mb-0">A new approach to university admissions counseling</p>
+      </div>
+  </div>
+</header>
+<div id="secwrapper">
+<section>
+  <img [src]="ListOfMajor[0].universityImg" style="width: 90%; height: 50em; margin-left: 5%;">
+  <h2 style="text-align: center;">{{ListOfMajor[0].universityName}}</h2>
+  <article id="featured" *ngFor="let item of ListOfMajor" style="width: 40%; margin-left: 6em; margin-top: 1em;">
+    <p><b>Mã Ngành: </b> {{item.description}}</p>
+    <p><b>Tên Ngành: </b> {{item.name}}</p>
+    <p><b>Hệ Đào Tạo: </b> {{item.type}}</p>
+    <p><b>Số Tín Chỉ: </b> {{item.credits}}</p>
+    <p><b>Học Phí: </b> {{item.price}} / Tín Chỉ</p>
+    <p><b>Điểm chuẩn năm {{item.year}}: </b> {{item.score}}</p>
+    <button class="btn btn-success" style="width: 10em; height: 3em; float: right;" (click)="AddFavorite(item.id)">Thêm vào yêu thích</button>
+  </article>
+</section>
+</div>

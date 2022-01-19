@@ -1,0 +1,18 @@
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container px-4 px-lg-5">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+              <li class="nav-item" *ngIf="Condition == 1"><a [routerLink]="[ '/news' ]" routerLinkActive="active" class="nav-link">Tin tức</a></li>
+              <li class="nav-item" *ngIf="Condition == 1"><a [routerLink]="[ '/universities' ]" routerLinkActive="active" class="nav-link">Trường đại học</a></li>
+              <li class="nav-item" *ngIf="Condition == 1"><a [routerLink]="[ '/forum' ]" routerLinkActive="active" class="nav-link">Diễn đàn</a></li>
+              <li class="nav-item" *ngIf="Condition == 1"><a [routerLink]="[ '/profile' ]" routerLinkActive="active" class="nav-link">Thông tin cá nhân</a></li>
+              <li class="nav-item" *ngIf="Condition == 0"><a [routerLink]="[ '/login' ]" routerLinkActive="active" class="nav-link">Đăng nhập</a></li>
+              <li class="nav-item" *ngIf="Condition == 0"><a [routerLink]="[ '/register' ]" routerLinkActive="active" class="nav-link">Đăng kí</a></li>
+              <li class="nav-item" *ngIf="Condition == 1"><a class="nav-link" (click)="Logout()" style="cursor: pointer;">Đăng xuất</a></li>
+          </ul>
+      </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

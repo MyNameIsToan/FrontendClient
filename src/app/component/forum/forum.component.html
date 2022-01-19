@@ -1,0 +1,34 @@
+<header class="bg-dark py-5">
+  <div class="container px-4 px-lg-5 my-5">
+      <div class="text-center text-white">
+          <h1 class="display-4 fw-bolder">ADVISING EDUCATION ENROLLMENT</h1>
+          <p class="lead fw-normal text-white-50 mb-0">A new approach to university admissions counseling</p>
+      </div>
+  </div>
+</header>
+<div id="secwrapper">
+<section>
+  <form (ngSubmit)="OnSearch()" [formGroup]="SearchForm">
+    <input type="text" class="form-control" style="width: 70%;margin-left: 10%; margin-top: 1.5em; float: left;" placeholder="Tìm Kiếm..." formControlName="Search">
+    <button type="submit" class="btn btn-primary" style="padding: 0.2em; margin-top: 1.5em; float: left; width: 10%; height: 2.4em;">Tìm kiếm</button>
+  </form><br><br><br>
+  <div class="card" style="width: 80%;  margin-left: 10%; margin-top: 1.5em;" *ngFor="let item of ListOfPosts">
+    <div class="card-header" style="padding-left: 1em;">
+      {{item.createdDate}}
+    </div>
+    <div class="card-body" style="padding: 1em;">
+      <h5 class="card-title">{{item.title}}</h5>
+      <p class="card-text"><b>Tác giả:&nbsp;</b><img [src]="item.user.avatarPath" style="width: 1.5em;"> {{item.user.username}}</p>
+      <p class="card-text">{{item.content}}</p>
+      <a (click)="ShowReplies(item.id, item.title, item.content)" class="btn btn-primary" style="padding: 0.2em; margin-top: 0.3em;">Chi tiết</a>
+    </div>
+  </div>
+</section>
+<div class="UploadPost" style="margin-left: 2%;">
+  <form (ngSubmit)="OnSubmit()" [formGroup]="CreateForm">
+    <input type="text" style="margin-left: 10%; margin-top: 1em; width: 100%;" formControlName="Tiêu đề" placeholder="Title" required/>
+    <textarea style="margin-left: 10%; margin-top: 1em; width: 100%; height: 5em; resize: none;" formControlName="Content" placeholder="Nội dung" required></textarea><br>
+    <button type="submit" class="btn btn-success" style="margin-left: 10%; margin-top: 1em; padding: 0.5em;">Tạo mới</button>
+  </form>
+</div>
+</div>
